@@ -7,6 +7,8 @@ CLASS zcl_00_eje09_sol DEFINITION
 
     INTERFACES if_oo_adt_classrun .
   PROTECTED SECTION.
+
+   data hola type string.
   PRIVATE SECTION.
 ENDCLASS.
 

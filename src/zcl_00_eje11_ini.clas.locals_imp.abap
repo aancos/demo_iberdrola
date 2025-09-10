@@ -56,7 +56,7 @@ CLASS lcl_passenger_flight DEFINITION .
     DATA seats_max  TYPE /dmo/plane_seats_max.
     DATA seats_occ  TYPE /dmo/plane_seats_occupied.
     DATA seats_free TYPE i.
-    data ejemplo type i.
+    data ejemplo_iberdrola type i.
 
     DATA price TYPE /dmo/flight_price.
     CLASS-DATA currency TYPE /dmo/currency_code VALUE 'EUR'.
