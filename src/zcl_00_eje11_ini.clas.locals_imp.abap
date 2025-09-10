@@ -56,7 +56,6 @@ CLASS lcl_passenger_flight DEFINITION .
     DATA seats_max  TYPE /dmo/plane_seats_max.
     DATA seats_occ  TYPE /dmo/plane_seats_occupied.
     DATA seats_free TYPE i.
-    data ejemplo_iberdrola type i.
 
     DATA price TYPE /dmo/flight_price.
     CLASS-DATA currency TYPE /dmo/currency_code VALUE 'EUR'.
@@ -171,7 +170,15 @@ DATA(today) = cl_abap_context_info=>get_system_date( ).
     FIELDS carrier_id, connection_id, flight_date,
            plane_type_id, seats_max, seats_occupied,
            seats_max - seats_occupied as seats_free,
-           price, currency_code
+           currency_conversion(
+                                amount = price,
+                                source_currency = currency_code,
+                                target_currency = @currency,
+                                exchange_rate_date = flight_date,
+                                on_error = @sql_currency_conversion=>c_on_error-set_to_null
+                                ) AS price,
+*               currency_code
+            @currency AS currency_code
      WHERE carrier_id = @i_carrier_id
       INTO TABLE @flights_buffer.
 
@@ -199,7 +206,16 @@ DATA(today) = cl_abap_context_info=>get_system_date( ).
         FIELDS plane_type_id,
                seats_max, seats_occupied,
                seats_max - seats_occupied AS seats_free,
-               price, currency_code
+*               price,
+               currency_conversion(
+                                amount = price,
+                                source_currency = currency_code,
+                                target_currency = @currency,
+                                exchange_rate_date = flight_date,
+                                on_error = @sql_currency_conversion=>c_on_error-set_to_null
+                                ) AS price,
+*               currency_code
+         @currency AS currency_code
          WHERE carrier_id    = @i_carrier_id
            AND connection_id = @i_connection_id
            AND flight_date   = @i_flight_date
@@ -217,20 +233,20 @@ DATA(today) = cl_abap_context_info=>get_system_date( ).
 *      seats_free = flight_raw-seats_max - flight_raw-seats_occupied.
     seats_free = flight_raw-seats_free.
 
-* convert currencies
-      TRY.
-          cl_exchange_rates=>convert_to_local_currency(
-            EXPORTING
-              date              = flight_raw-flight_date
-              foreign_amount    = flight_raw-price
-              foreign_currency  = flight_raw-currency_code
-              local_currency    = currency
-            IMPORTING
-              local_amount      = me->price
-          ).
-        CATCH cx_exchange_rates.
-          CLEAR price.
-      ENDTRY.
+** convert currencies
+*      TRY.
+*          cl_exchange_rates=>convert_to_local_currency(
+*            EXPORTING
+*              date              = flight_raw-flight_date
+*              foreign_amount    = flight_raw-price
+*              foreign_currency  = flight_raw-currency_code
+*              local_currency    = currency
+*            IMPORTING
+*              local_amount      = me->price
+*          ).
+*        CATCH cx_exchange_rates.
+*          CLEAR price.
+*      ENDTRY.
 
 * Set connection details
 *      SELECT SINGLE
