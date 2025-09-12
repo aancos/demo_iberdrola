@@ -1,4 +1,4 @@
-CLASS zcl_00_eje14_ini DEFINITION
+CLASS zcl_00_objetos DEFINITION
   PUBLIC
   FINAL
   CREATE PUBLIC .
@@ -12,11 +12,13 @@ ENDCLASS.
 
 
 
-CLASS ZCL_00_EJE14_INI IMPLEMENTATION.
+CLASS ZCL_00_OBJETOS IMPLEMENTATION.
 
 
   METHOD if_oo_adt_classrun~main.
 
+*    CONSTANTS c_carrier_id TYPE /dmo/carrier_id VALUE 'LH'.
+*    CONSTANTS c_carrier_id TYPE /dmo/carrier_id VALUE 'UA'.
     CONSTANTS c_carrier_id TYPE /dmo/carrier_id VALUE 'LH'.
 
     TRY.
@@ -27,6 +29,8 @@ CLASS ZCL_00_EJE14_INI IMPLEMENTATION.
 
       CATCH cx_abap_invalid_value.
         out->write( | Carrier { c_carrier_id } does not exist | ).
+      CATCH cx_abap_auth_check_exception.
+        out->write( | No authorization to display carrier { c_carrier_id } | ).
     ENDTRY.
 
     IF carrier IS BOUND.

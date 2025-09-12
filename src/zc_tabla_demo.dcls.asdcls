@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZC_TABLA_DEMO'
+@MappingRole: true
+define role ZC_TABLA_DEMO {
+  grant select on ZC_TABLA_DEMO
+  where INHERITING CONDITIONS FROM ENTITY ZR_TABLA_DEMO REPLACING { ROOT WITH _BaseEntity };
+}

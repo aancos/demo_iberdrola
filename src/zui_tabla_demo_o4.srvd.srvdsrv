@@ -1,0 +1,11 @@
+@EndUserText: {
+  label: 'Service Definition for ZC_TABLA_DEMO'
+}
+@ObjectModel: {
+  leadingEntity: {
+    name: 'ZC_TABLA_DEMO'
+  }
+}
+define service ZUI_TABLA_DEMO_O4 provider contracts odata_v4_ui {
+  expose ZC_TABLA_DEMO as Doumentos;
+}

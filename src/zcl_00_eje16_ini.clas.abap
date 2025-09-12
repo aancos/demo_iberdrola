@@ -1,4 +1,4 @@
-CLASS zcl_00_eje14_ini DEFINITION
+CLASS zcl_00_eje16_ini DEFINITION
   PUBLIC
   FINAL
   CREATE PUBLIC .
@@ -12,12 +12,12 @@ ENDCLASS.
 
 
 
-CLASS ZCL_00_EJE14_INI IMPLEMENTATION.
+CLASS ZCL_00_EJE16_INI IMPLEMENTATION.
 
 
   METHOD if_oo_adt_classrun~main.
 
-    CONSTANTS c_carrier_id TYPE /dmo/carrier_id VALUE 'LH'.
+    CONSTANTS c_carrier_id TYPE /dmo/carrier_id VALUE 'UA'.
 
     TRY.
         DATA(carrier) = NEW lcl_carrier(  i_carrier_id = c_carrier_id ).

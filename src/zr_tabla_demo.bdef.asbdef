@@ -1,0 +1,52 @@
+managed implementation in class ZBP_R_TABLA_DEMO unique;
+strict ( 2 );
+with draft;
+extensible;
+define behavior for ZR_TABLA_DEMO alias Doumentos
+persistent table ZTABLA_DEMO
+extensible
+draft table ZTABLA_DEMO_D
+etag master Locallastchangedat
+lock master total etag Lastchangedat
+authorization master( global )
+{
+  field ( mandatory : create )
+   Sociedad,
+   Ejercicio,
+   Document;
+
+  field ( readonly )
+   Locallastchangedat,
+   Lastchangedat;
+
+
+  field ( readonly : update )
+   Sociedad,
+   Ejercicio,
+   Document;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ZTABLA_DEMO corresponding extensible
+  {
+    Sociedad = sociedad;
+    Ejercicio = ejercicio;
+    Document = document;
+    Importe = importe;
+    Moneda = moneda;
+    Createdby = createdby;
+    Changedby = changedby;
+    Locallastchangedat = locallastchangedat;
+    Lastchangedat = lastchangedat;
+  }
+
+}

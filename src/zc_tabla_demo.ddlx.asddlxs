@@ -1,0 +1,93 @@
+@Metadata.layer: #CORE
+@UI.headerInfo.title.type: #STANDARD
+@UI.headerInfo.title.value: 'Sociedad'
+@UI.headerInfo.description.type: #STANDARD
+@UI.headerInfo.description.value: 'Ejercicio'
+annotate view ZC_TABLA_DEMO with
+{
+  @UI.facet: [ {
+    label: 'Hola Mundo!', 
+    id: 'GeneralInfo', 
+    purpose: #STANDARD, 
+    position: 10 , 
+    type: #IDENTIFICATION_REFERENCE
+  } ]
+  @UI.identification: [ {
+    position: 10 
+  } ]
+  @UI.lineItem: [ {
+    position: 10 
+  } ]
+  @UI.selectionField: [ {
+    position: 10 
+  } ]
+  Sociedad;
+  
+  @UI.identification: [ {
+    position: 20 
+  } ]
+  @UI.lineItem: [ {
+    position: 20 
+  } ]
+  @UI.selectionField: [ {
+    position: 20 
+  } ]
+  Ejercicio;
+  
+  @UI.identification: [ {
+    position: 30 
+  } ]
+  @UI.lineItem: [ {
+    position: 30 
+  } ]
+
+  Document;
+  
+  @UI.identification: [ {
+    position: 40 
+  } ]
+  @UI.lineItem: [ {
+    position: 40,
+    importance: #HIGH 
+  } ]
+
+  Importe;
+  
+  @UI.identification: [ {
+    position: 50 
+  } ]
+
+  Createdby;
+  
+  @UI.identification: [ {
+    position: 60 
+  } ]
+
+  Changedby;
+  
+  @UI.identification: [ {
+    position: 70 
+  } ]
+
+  Locallastchangedat;
+  
+  @UI.identification: [ {
+    position: 80 
+  } ]
+
+  Lastchangedat;
+  
+  @EndUserText.label: '_BaseEntity'
+  @UI.identification: [ {
+    position: 90 , 
+    label: '_BaseEntity'
+  } ]
+  @UI.lineItem: [ {
+    position: 90 , 
+    label: '_BaseEntity'
+  } ]
+  @UI.selectionField: [ {
+    position: 90 
+  } ]
+  _BaseEntity;
+}

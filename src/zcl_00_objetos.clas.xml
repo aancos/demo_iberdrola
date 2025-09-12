@@ -3,9 +3,9 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <VSEOCLASS>
-    <CLSNAME>ZCL_00_EJE14_INI</CLSNAME>
+    <CLSNAME>ZCL_00_OBJETOS</CLSNAME>
     <LANGU>E</LANGU>
-    <DESCRIPT>Solution: Retrieve Sorted and Aggregated Data</DESCRIPT>
+    <DESCRIPT>Solution: Implement Authority Checks</DESCRIPT>
     <STATE>1</STATE>
     <CLSCCINCL>X</CLSCCINCL>
     <FIXPT>X</FIXPT>

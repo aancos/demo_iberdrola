@@ -3,9 +3,9 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <VSEOCLASS>
-    <CLSNAME>ZCL_00_EJE14_INI</CLSNAME>
+    <CLSNAME>ZCL_00_INTERFACES</CLSNAME>
     <LANGU>E</LANGU>
-    <DESCRIPT>Solution: Retrieve Sorted and Aggregated Data</DESCRIPT>
+    <DESCRIPT>Solution: Work With Interface References</DESCRIPT>
     <STATE>1</STATE>
     <CLSCCINCL>X</CLSCCINCL>
     <FIXPT>X</FIXPT>
@@ -40,7 +40,7 @@
     <item>
      <ID>I</ID>
      <KEY>005</KEY>
-     <ENTRY>Flight &amp;carrid&amp; &amp;connid&amp; on &amp;date&amp; from &amp;from&amp; to &amp;to&amp;</ENTRY>
+     <ENTRY>GONZALO &amp;carrid&amp; &amp;connid&amp; on &amp;date&amp; from &amp;from&amp; to &amp;to&amp;</ENTRY>
      <LENGTH>132</LENGTH>
     </item>
     <item>
